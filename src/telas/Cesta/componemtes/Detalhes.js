@@ -1,21 +1,26 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
+import { color } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
-import logo from '../../../../assets/logo.png';
+
+
 import Texto   from '../../componentes/Texto';
 
-export default function Detalhes(){
+export default function Detalhes({logoFazenda, preco, nome, nomeFazenda, descricao, botao}){
     return<>
     <View style={estilos.cesta}>
-            <Texto style={estilos.nome}>Cesta de Verduras</Texto>
+            <Texto style={estilos.nome}>{nome}</Texto>
             <View style={estilos.fazenda}> 
-                <Image source={logo} style={estilos.imageFazenda}/>
-                <Texto style={estilos.nomeFazenda}>Jenny Jack Farm</Texto>
+                <Image source={logoFazenda} style={estilos.imageFazenda}/>
+                <Texto style={estilos.nomeFazenda}>{nomeFazenda}</Texto>
             </View>
-            <Texto style={estilos.descricao}>Uma cesta com produtos selecionados 
-                    cuidadosamente da fazenda direto para
-                     a sua cozinha</Texto>
-            <Texto style={estilos.preco}>R$ 40,00</Texto>
+            <Texto style={estilos.descricao}>{descricao}</Texto>
+            <Texto style={estilos.preco}>{preco}</Texto>
+            <TouchableOpacity style={estilos.botao}>
+                <Texto style={estilos.textobotao}>{botao}</Texto>
+            </TouchableOpacity>
+            
+            
         </View></>
 }
 
@@ -68,5 +73,21 @@ const estilos = StyleSheet.create({
         fontSize: 20,
         lineHeight: 42,
         marginTop: 8,
+    },
+
+    botao:{
+        backgroundColor: '#2a9f85',
+        marginTop: 16,
+        paddingVertical: 16,
+        borderRadius: 7,  
+    },
+    textobotao:{
+        textAlign: "center",
+        color: "white",
+        lineHeight: 26,
+        fontSize: 17,
+        fontWeight: "bold",
     }
+
+    
 })
